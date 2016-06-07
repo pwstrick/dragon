@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="initial-scale=1;maximum-scale=1"/>-->
+    <meta name="format-detection" content="telephone=no"/>
+    <title>互联网龙舟大赛</title>
+    <script src="js/flexible.js"></script>
+    <link rel="stylesheet" href="css/index.css?__VERSION"/>
+</head>
+<body>
+    <!--加载效果 Start-->
+    <section class="ui-loading-wrap" id="loading">
+        <i class="ui-loading"></i>
+        <p>加载中...</p>
+    </section>
+    <!--加载效果 End-->
+    <!--第一屏 Start-->
+    <section class="section tc" id="first" style="display: none">
+        <div class="rule" id="rule">活动规则</div>
+        <img src="img/blank.gif" data-src="img/dragon.png" class="db-img"/>
+        <button class="btn btn-begin" id="begin" type="button" data-track="进入游戏">开始游戏</button>
+        <ul class="ui-flex ui-justify-flex">
+            <li>
+                <i class="brand-1"></i>
+                <p>车轮考驾照</p>
+            </li>
+            <li>
+                <i class="brand-2"></i>
+                <p>喜马拉雅FM</p>
+            </li>
+            <li>
+                <i class="brand-3"></i>
+                <p>墨迹天气</p>
+            </li>
+            <li>
+                <i class="brand-4"></i>
+                <p>高夫</p>
+            </li>
+        </ul>
+        <aside class="dialog dialog-first" style="display: none">
+            <h5>活动时间：6月8日12:00-6月12日17:00。</h5>
+            <h5>点击“开始游戏”，选择一支你支持的战队，在9秒时间内抓取尽量多的粽子，让该战队冲向第一。</h5>
+            <h5>活动期间，第50/100/500等共20名幸运用户可获得由车轮考驾照、喜马拉雅FM、墨迹天气、高夫联合提供的大奖。</h5>
+            <h5>◆一等奖 1名</h5>
+            <h5 class="p-section">价值2000元的高夫男士面膜；</h5>
+            <h5>◆二等奖 5名</h5>
+            <h5 class="p-section">价值399元的360行车记录仪；</h5>
+            <h5>◆三等奖 8名</h5>
+            <h5 class="p-section">价值199元的喜马拉雅FM随车听或等值智能肌肤测试仪；</h5>
+            <h5>◆幸运奖 6名</h5>
+            <h5 class="p-section">车轮社区金属车标或喜猫抱枕。</h5>
+            <button type="button" class="btn-dialog btn">朕知道了</button>
+        </aside>
+    </section>
+    <!--第一屏 End-->
+    <!--第二屏 Start-->
+    <section class="section" id="second" style="display: none">
+        <div class="corps" id="corps">
+            <img  src="img/blank.gif" data-src="img/corps-select.png" class="corps-title"/>
+            <ul class="ui-flex ui-flex-row-center">
+                <li data-icon="1">
+                    <img src="img/blank.gif" data-src="img/icon-11.png"/>
+                    <p>不可思议的互联网学车平台</p>
+                </li>
+                <li data-icon="2">
+                    <img src="img/blank.gif" data-src="img/icon-12.png"/>
+                    <p>中国知名音频平台</p>
+                </li>
+            </ul>
+            <ul class="ui-flex ui-flex-row-center">
+                <li data-icon="3">
+                    <img src="img/blank.gif" data-src="img/icon-13.png"/>
+                    <p>做你365天的墨迹天气</p>
+                </li>
+                <li data-icon="4">
+                    <img src="img/blank.gif" data-src="img/icon-14.png" />
+                    <p>专为中国男士高级定制</p>
+                </li>
+            </ul>
+        </div>
+        <aside class="dialog dialog-second animation-delay">
+            <p>请选择一支你支持的战队~</p>
+            <button type="button" class="btn-dialog btn">朕知道了</button>
+        </aside>
+        <img src="img/blank.gif" data-src="img/boat-bac.png" class="db-img"/>
+    </section>
+    <!--第二屏 End-->
+    <!--第三屏 游戏 Start-->
+    <section class="section section-absolute" id="third" style="display: none">
+        <header class="countdown">
+            <span>0</span>
+            <span id="thousand">9</span>
+            <span id="hundred">0</span>
+            <span id="decade">0</span>
+        </header>
+        <div class="river">
+            <!--<img src="img/blank.gif" data-src="img/icon-1.png" class="dragon-logo" id="dragon-logo"/>-->
+            <i class="brand-1" id="dragon-logo"></i>
+            <img src="img/blank.gif" data-src="img/dragon-boat.png" class="db-img dragon-boat"/>
+            <img src="img/blank.gif" data-src="img/quant1.png" class="quant quant1"/>
+            <img src="img/blank.gif" data-src="img/quant2.png" class="quant quant2"/>
+            <img src="img/blank.gif" data-src="img/quant3.png" class="quant quant3"/>
+            <img src="img/blank.gif" data-src="img/quant4.png" class="quant quant4"/>
+        </div>
+        <canvas id="game" style="display:none;">您的浏览器不支持HTML5</canvas>
+        <aside class="dialog tl dialog-third animation-delay">
+            <p>9秒倒计时内，为自己战队抓取尽量多的粽子（不分品牌），让战队冲向第一。</p>
+            <p>截至活动结束时，第50/100/500等共20名幸运用户，最高可获得价值399元的360行车记录仪等丰厚奖品。</p>
+            <button type="button" class="btn-dialog btn" id="btn-game" data-track="开始游戏">朕知道了</button>
+        </aside>
+    </section>
+    <!--第三屏 End-->
+    <!--第四屏 Start-->
+    <section class="section " id="fourth" style="display: none">
+        <div class="corps">
+            <img  src="img/blank.gif" data-src="img/corps-rank.png" class="corps-title"/>
+            <div id="has-gift" style="display: none">
+                <div class="rank-txt">
+                    <h3>恭喜！您是第 <span id="luckNum"></span> 名参与用户</h3>
+                    <h3>请留下联系方式领取神秘大礼！</h3>
+                </div>
+                <div class="rank-mobile ui-flex">
+                    <input type="tel" placeholder="请输入手机号" id="mobile"/>
+                    <button type="button" class="ui-col-1" id="btnPrice">提交</button>
+                </div>
+            </div>
+            <div class="rank-txt" id="no-gift" style="display: none">
+                <h3>您的个人参赛顺序</h3>
+                <h3>第 <span id="rankNum"></span> 名</h3>
+                <h4>与神秘大奖擦肩而过</h4>
+                <h4>别灰心，后面还有大礼~</h4>
+            </div>
+            <table>
+                <tbody>
+                    <tr class="rank-process" id="rankProcess">
+                        <td>
+                            <p></p>
+                            <p style="background:#2792fd"></p>
+                        </td>
+                        <td>
+                            <p></p>
+                            <p style="background:#ff4300"></p>
+                        </td>
+                        <td>
+                            <p></p>
+                            <p style="background:#00b7f1"></p>
+                        </td>
+                        <td>
+                            <p></p>
+                            <p style="background:#e0002a"></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <i class="brand-1"></i>
+                            <p>车轮考驾照</p>
+                        </td>
+                        <td>
+                            <i class="brand-2"></i>
+                            <p>喜马拉雅FM</p>
+                        </td>
+                        <td>
+                            <i class="brand-3"></i>
+                            <p>墨迹天气</p>
+                        </td>
+                        <td>
+                            <i class="brand-4"></i>
+                            <p>高夫</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a href="javascript:void(0)" class="btn btn-go" id="btn-go" data-track="优惠券按钮">
+            <h3>点击继续</h3>
+            <h6>别急着走，还有优惠券></h6>
+        </a>
+        <aside class="dialog dialog-third" style="display: none">
+            <p></p>
+            <button type="button" class="btn-dialog btn">朕知道了</button>
+        </aside>
+    </section>
+    <!--第四屏 End-->
+    <!--第五屏 Start-->
+    <section class="section" id="fifth" style="display: none">
+        <div class="coupon">
+            <img src="img/blank.gif" data-src="img/coupon-title.png" class="coupon-title"/>
+            <ul class="coupon-list ui-flex ui-flex-row-between">
+                <li data-href="#">
+                    <h6 class="tr">
+                        学车现金红包
+                        <p class="small">COUPON</p>
+                    </h6>
+                    <h3 class="tl">￥<span class="big">66</span></h3>
+                    <h5 class="tl">车轮考驾照</h5>
+                </li>
+                <li data-href="#" data-track="高夫优惠券">
+                    <h6 class="tr">
+                        6.18狂欢季优惠券
+                        <p class="small">COUPON</p>
+                    </h6>
+                    <h3 class="tl">￥<span class="big">199</span>-<span class="big">100</span></h3>
+                    <h5 class="tl">高夫</h5>
+                </li>
+            </ul>
+            <ul class="coupon-list ui-flex ui-flex-row-between">
+                <li data-href="#">
+                    <h6 class="tr">
+                        硬件产品优惠券
+                        <p class="small">COUPON</p>
+                    </h6>
+                    <h3 class="tl">￥<span class="big">20</span></h3>
+                    <h5 class="tl">喜马拉雅FM</h5>
+                </li>
+                <li data-href="#">
+                    <h6 class="tr">
+                        下雨全额赔洗车券
+                        <p class="small">COUPON</p>
+                    </h6>
+                    <h3 class="tl">￥<span class="big">10</span></h3>
+                    <h5 class="tl">墨迹天气</h5>
+                </li>
+            </ul>
+        </div>
+        <a href="javascript:void(0)" class="btn btn-again" id="btn-again" data-track="再玩一次">
+            <h3>再玩一次</h3>
+        </a>
+        <a href="javascript:void(0)" class="btn btn-again" id="btnFlaunt" data-track="炫耀一下">
+            <h3>炫耀一下</h3>
+        </a>
+        <img src="img/blank.gif" data-src="img/boat-bac.png" class="db-img"/>
+        <div class="flaunt" id="flaunt" style="display: none">
+            <img src="img/blank.gif" data-src="img/share.png"/>
+        </div>
+    </section>
+    <!--第五屏 End-->
+    <script src="js/createjs.js"></script>
+    <script src="build/js/index.bundle.js?__VERSION"></script>
+</body>
+</html>
